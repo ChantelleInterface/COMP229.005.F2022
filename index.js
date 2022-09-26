@@ -1,2 +1,3 @@
-// This goes to the client side.
-// New commit
+import { sayHello } from './hello';
+
+sayHello();
