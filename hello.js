@@ -1,4 +1,4 @@
-const message = "hello everyone!";
+const message = "I am proud!"
 
 exports.sayHello = function(){
 
