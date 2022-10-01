@@ -1,5 +1,22 @@
 {
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1"
-  }
+  },
+  "name": "comp229.005.f2022",
+  "description": "COMP229 Assignments",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChantelleInterface/COMP229.005.F2022"
+  },
+  "keywords": [
+    "COMP229.005, MEAN, Express, EJS, NodeJS"
+  ],
+  "author": "Chantelle Lawson",
+  "license": "MIT"
 }
