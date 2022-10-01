@@ -1,9 +1,9 @@
-const hello = require('./hello');
-hello.sayHello();
+// const hello = require('./hello');
+// hello.sayHello();
 
-const lib = require('./lib');
-console.log( lib.halfOf(10) );
-console.log( lib.multiply(10, 2) );
+// const lib = require('./lib');
+// console.log( lib.halfOf(10) );
+// console.log( lib.multiply(10, 2) );
 
 // Node
 // const http = require('http');
