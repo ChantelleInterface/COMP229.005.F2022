@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('about', 
+  res.render('index', 
   { title: 'About Me',
     name: 'Chantelle'
 

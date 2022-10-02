@@ -2,7 +2,8 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <!-- Navbar with bootstrap -->
@@ -45,7 +46,7 @@
             <% } %>
           </li>
           <li class="nav-item">
-            <% if(title == "Julio"){  %>
+            <% if(title == "Chantelle"){  %>
               <a class="nav-link active" href="/users/chantelle">User</a>
             <% } else { %>  
               <a class="nav-link" href="/users/chantelle">User</a>
