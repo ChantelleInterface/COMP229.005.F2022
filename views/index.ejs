@@ -1,6 +1,69 @@
 <% include partials/header.ejs %>
-
+<main>
+    
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %> page</p>
+
+    <% if(title == "Home"){  %>
+    <p>Welcome to <%= title %>'s' page</p>
+
+    <% } %>
+
+    <% if(title == "About Me"){ %>  
+
+        <link rel='stylesheet' href='/stylesheets/about.css' />
+        
+        <div class="about-section">
+                <h1>About Us Page</h1>
+                <p>Some text about who we are and what we do.</p>
+                <p>Resize the browser window to see that this page is responsive by the way.</p>
+            </div>
+            <div class="row">
+                <div class="column">
+                <div class="card">
+                    <img src="ChantelleLawson.jpg" alt="Chantelle" style="width:100%">
+                    <div class="container">
+                    <h2>Jane Doe</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                    </div>
+                </div>
+                </div>
+    <% } %>
+
+    
+    <% if(title == "Contact"){ %>  
+
+        <link rel='stylesheet' href='/stylesheets/contact.css' />
+        
+        <div class="container">
+            <div style="text-align:center">
+            <p>Swing by for a cup of coffee, or leave us a message:</p>
+            </div>
+            <div class="row">
+            <div class="column">
+                <img src="/w3images/map.jpg" style="width:100%">
+            </div>
+            <div class="column">
+                <form action="mailto:JOEDOEJOE@my.centennialcollege.ca" method="post">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                <input type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
+        </div>
+<% } %>
 
 <% include partials/footer.ejs %>
