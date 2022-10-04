@@ -3,7 +3,8 @@ Student number: 301216199
 Midterm Due Date: October 8th 2022
 Filename: home.ejs -->
 
-<% include partials/header.ejs %>
+<%- include('partials/header.ejs') %>
+
 <main>
     
     <% if(title == "Home"){  %>
@@ -47,4 +48,4 @@ Filename: home.ejs -->
                 </div>
     <% } %>
 
-<% include partials/footer.ejs %>
+    <%- include('partials/footer.ejs') %>

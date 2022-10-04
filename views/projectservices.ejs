@@ -3,7 +3,7 @@ Student number: 301216199
 Midterm Due Date: October 8th 2022
 Filename: projectservices.ejs -->
 
-<% include partials/header.ejs %>
+<%- include('partials/header.ejs') %>
 
     <h1><%= title %></h1>
 
@@ -89,5 +89,5 @@ Filename: projectservices.ejs -->
             <div><p><a href='https://pixabay.com/photos/search/software%20development/?manual_search=1'>Images obtained from Pixabay</a></p></div>
     
         <% } %>
-
-    <% include partials/footer.ejs %>
+        
+        <%- include('partials/footer.ejs') %>
