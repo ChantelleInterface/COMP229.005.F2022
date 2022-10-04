@@ -1,0 +1,42 @@
+<!-- Student name: Chantelle Lawson
+Student number: 301216199
+Midterm Due Date: October 8th 2022
+Filename: contact.ejs -->
+
+<%- include('partials/header.ejs') %>
+
+    <link rel='stylesheet' href='/stylesheets/contact.css' />
+        
+        <div class="container">
+            <div style="text-align:center">
+            <p>Please leave a comment below, your feedback is appreciated:</p>
+            </div>
+            <div class="row">
+            <div class="column">
+                <img src="/assets/tractricoid.jpg" style="width:100%">
+            </div>
+            <div class="column">
+                <form action="/">
+                    <fieldset id="Contact" class="text">
+                        <p>
+                            <label for="fname">First Name:</label>
+                            <input id="fname" placeholder="first name" name="fname" type="text" required="required" />
+                            <label for="lname">Last Name:</label>
+                            <input id="lname" placeholder="last name" name="lname" type="text" required="required" />
+                            <label for="email">Email:</label>
+                            <input id="email" placeholder="youremail@domain.com" name="email" type="email" required="required" />
+                            <br /><br /><label for="phone">Phone Number:</label>
+                            <input id="phone" placeholder="phone number" name="phone" type="text" required="required" />
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" name="comments" placeholder="Comment here..." required="required" style="height:170px"></textarea>
+                        </p>
+                    </fieldset>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+            <script src="/javascript/contact.js"></script>
+            <div><br><p><a href='https://www.teahub.io/viewwp/iboxhoR_wallpaper-683453-data-src-best-inception-wallpaper-inception/'>
+                Image obtained from Teahub</a></p></div>
+
+<%- include('partials/footer.ejs') %></div>
