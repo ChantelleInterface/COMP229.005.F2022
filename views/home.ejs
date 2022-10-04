@@ -1,11 +1,20 @@
+<!-- Student name: Chantelle Lawson
+Student number: 301216199
+Midterm Due Date: October 8th 2022
+Filename: home.ejs -->
+
 <% include partials/header.ejs %>
 <main>
     
-    <h1><%= title %></h1>
-
     <% if(title == "Home"){  %>
-    <p>Welcome to <%= title %>'s' page</p>
-
+        <div class="home-section">
+            <h1>Welcome</h1>
+            <p>This is portfolio is a representation of my first time deploying a web application.</p>
+            <p> Although I am new to the world of web application development, I strive to be able to create
+                software that will solve real life & business problems.</p>
+            <p>Feel free to navigate your way around my portfolio by using the navigation bar provided above.</p>
+            <p>Enjoy your time here!</p>
+        </div>
     <% } %>
 
     <% if(title == "About Me"){ %>  
@@ -13,14 +22,13 @@
         <link rel='stylesheet' href='/stylesheets/about.css' />
         
         <div class="about-section">
-                <h1>Welcome</h1>
-                <p>Hello, hello!</p>
+                <h1>Hello, hello!</h1>
                 <p>You have reached the point where I share a little bit about myself.</p>
             </div>
             <div class="row">
                 <div class="column">
                 <div class="card">
-                    <img src="/mypic.jpg" alt="Chantelle" style="width:100%" />
+                    <img src="/assets/mypic.jpg" alt="Chantelle" style="width:100%" />
                     <div class="container">
                     </div>
                 </div>
@@ -30,46 +38,13 @@
                     <div class="card">
                         <div class="container">
                         <h2>About Me</h2>
-                        <p class="title">Software Engineering Technology Student</p>
-                        <p>My name is Chantelle Lawson.</p>
-                        <p>That's all for now...Oh here is my resume, click below</p>
-                        <p><a href="chantellelawson_resume.pdf">Resume</a><p></p>
+                        <p id="title" class="title">Software Engineering Technology Student</p>
+                        <p id="aboutme">My name is Chantelle Lawson. I am a second year student at Centennial College</p>
+                        <p>My program of study is Software Engineering Technology: Artificial Intelligence.</p>
+                        <p id="resume">A copy of my resume can be found <a href="assets/chantellelawson_resume.pdf">here</a>.</p>
                         </div>
                     </div>
-                    </div>
+                </div>
     <% } %>
-
-    
-    <% if(title == "Contact"){ %>  
-
-        <link rel='stylesheet' href='/stylesheets/contact.css' />
-        
-        <div class="container">
-            <div style="text-align:center">
-            <p>Swing by for a cup of coffee, or leave us a message:</p>
-            </div>
-            <div class="row">
-            <div class="column">
-                <img src="/tractricoid.jpg" style="width:100%">
-            </div>
-            <div class="column">
-                <form action= "/";>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name.." required="required">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name.." required="required">
-                <label for="country">Country</label>
-                <select id="country" name="country">
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
-                </select>
-                <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." required="required" style="height:170px"></textarea>
-                <input type="submit" value="Submit">
-                </form>
-            </div>
-            </div>
-        </div>
-<% } %>
 
 <% include partials/footer.ejs %>

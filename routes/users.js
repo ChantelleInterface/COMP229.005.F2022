@@ -1,3 +1,8 @@
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Midterm Due Date: October 8th 2022
+// Filename: users.js
+
 var express = require('express');
 var router = express.Router();
 

@@ -1,6 +1,9 @@
+<!-- Student name: Chantelle Lawson
+Student number: 301216199
+Midterm Due Date: October 8th 2022
+Filename: projectservices.ejs -->
+
 <% include partials/header.ejs %>
-
-
 
     <h1><%= title %></h1>
 
@@ -16,15 +19,27 @@
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Anna</td>
+                        <td id="project1"><p id="descrption1">BSM Calculator: This project involved designing a basic metabolic rate
+                            Calculator with javascript functionality:</p>
+                            <p id="img1"><img src="/assets/project1.jpg" style="width:38%"></p>
+                        <p id="design1"><a href="http://studentweb.cencol.ca/clawso11/assignment1.html">View Here</a></p>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Debbie</td>
+                        <td id="project2"><p id="descrption2">Draw A Table: This project implemented web design concepts such as table formation,
+                            as well as programming concepts such as loops and methods:</p>
+                            <p id="img2"><img src="/assets/project2.jpg" style="width:38%"></p>
+                            <p id="design2"><a href="http://studentweb.cencol.ca/clawso11/assignment_2.html">View Here</a></p>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>John</td>
+                        <td id="project3"><p id="descrption3">Form Registration: This project required a fully functioning form which implemented
+                            'try - catch' programming concepts.</p>
+                            <p id="img3"><img src="/assets/project3.jpg" style="width:38%"></p>
+                            <p id="design3"><a href="http://studentweb.cencol.ca/clawso11/Assignment_4.html">View Here</a></p>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -35,33 +50,44 @@
                 <table class="table table-dark">
                 <thead>
                     <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th>Service Name</th>
+                    <th>Relevant Courses</th>
+                    <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
+                    <td><p id="skill1">Programming</p>
+                        <p id="img1"><img src="/assets/service1.jpg" style="width:100%"></p>
+                    </td>
+                    <td><p id="course1">Programming I & Programming II</p></td>
+                    <td><p id="description1">Familiar with designing, coding and documenting object-oriented programs; 
+                        tested applications in the C# .NET environment.</p>
+                    </td>
                     </tr>
                     <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
+                    <td><p id="skill2">Web Design & Development</p>
+                        <p id="img2"><img src="/assets/service2.jpg" style="width:100%"></p>
+                    </td>
+                    <td><p id="course2"></p>Client-Side Web Design & Web Application Development</p></td>
+                    <td><p id="description2">Proficient in basic JavaScript syntax and its more advanced features like OOP, 
+                        DOM, touch and mobile interfaces, Ajax, jQuery; able to build professional quality web applications.</p>
+                    </td>
                     </tr>
                     <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
+                    <td><p id="skill3">Database Queries</p>
+                        <p id="img3"><img src="/assets/service3.jpg" style="width:100%"></p>
+                    </td>
+                    <td><p id="course3">Database Concepts</td></p>
+                    <td><p id="description3">Familiar with data types, table structure and relationships, data access queries using QBE grid 
+                        and SQL, normalization, and database security</p>
+                    </td>
                     </tr>
                 </tbody>
                 </table>
             </div>
+            <div><p><a href='https://pixabay.com/photos/search/software%20development/?manual_search=1'>Images obtained from Pixabay</a></p></div>
     
         <% } %>
-    
 
     <% include partials/footer.ejs %>
-    

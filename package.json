@@ -1,4 +1,16 @@
 {
+  "author": "Chantelle Lawson",
+  "license": "MIT",
+  "name": "comp229.005.f2022",
+  "description": "COMP229 Assignments",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChantelleInterface/COMP229.005.F2022"
+  },
+  "keywords": [
+    "COMP229.005, MEAN, Express, EJS, NodeJS"
+  ],
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -13,17 +25,5 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
-  },
-  "name": "comp229.005.f2022",
-  "description": "COMP229 Assignments",
-  "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ChantelleInterface/COMP229.005.F2022"
-  },
-  "keywords": [
-    "COMP229.005, MEAN, Express, EJS, NodeJS"
-  ],
-  "author": "Chantelle Lawson",
-  "license": "MIT"
+  }
 }
