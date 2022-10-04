@@ -13,23 +13,30 @@
         <link rel='stylesheet' href='/stylesheets/about.css' />
         
         <div class="about-section">
-                <h1>About Us Page</h1>
-                <p>Some text about who we are and what we do.</p>
-                <p>Resize the browser window to see that this page is responsive by the way.</p>
+                <h1>Welcome</h1>
+                <p>Hello, hello!</p>
+                <p>You have reached the point where I share a little bit about myself.</p>
             </div>
             <div class="row">
                 <div class="column">
                 <div class="card">
-                    <img src="ChantelleLawson.jpg" alt="Chantelle" style="width:100%">
+                    <img src="/mypic.jpg" alt="Chantelle" style="width:100%" />
                     <div class="container">
-                    <h2>Jane Doe</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>jane@example.com</p>
-                    <p><button class="button">Contact</button></p>
                     </div>
                 </div>
                 </div>
+
+                <div class="column">
+                    <div class="card">
+                        <div class="container">
+                        <h2>About Me</h2>
+                        <p class="title">Software Engineering Technology Student</p>
+                        <p>My name is Chantelle Lawson.</p>
+                        <p>That's all for now...Oh here is my resume, click below</p>
+                        <p><a href="chantellelawson_resume.pdf">Resume</a><p></p>
+                        </div>
+                    </div>
+                    </div>
     <% } %>
 
     
@@ -43,22 +50,21 @@
             </div>
             <div class="row">
             <div class="column">
-                <img src="/w3images/map.jpg" style="width:100%">
+                <img src="/tractricoid.jpg" style="width:100%">
             </div>
             <div class="column">
-                <form action="mailto:JOEDOEJOE@my.centennialcollege.ca" method="post">
+                <form action= "/";>
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <input type="text" id="fname" name="firstname" placeholder="Your name.." required="required">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <input type="text" id="lname" name="lastname" placeholder="Your last name.." required="required">
                 <label for="country">Country</label>
                 <select id="country" name="country">
-                    <option value="australia">Australia</option>
                     <option value="canada">Canada</option>
                     <option value="usa">USA</option>
                 </select>
                 <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                <textarea id="subject" name="subject" placeholder="Write something.." required="required" style="height:170px"></textarea>
                 <input type="submit" value="Submit">
                 </form>
             </div>

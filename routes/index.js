@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.render(
-    'index', 
+    'home', 
     { 
       title: 'Home', 
     }
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('index', 
+  res.render('home', 
   { title: 'About Me',
     name: 'Chantelle'
 
@@ -34,16 +34,6 @@ router.get('/services', function(req, res, next) {
     'projectservices', 
     { 
       title: 'Services',
-    }
-  );
-});
-
-router.get('/contact', function(req, res, next) {
-  res.render(
-    'index', 
-    { 
-      title: 'Contact',
-      name: 'Chantelle' 
     }
   );
 });
