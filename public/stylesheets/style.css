@@ -3,11 +3,14 @@ Student number: 301216199
 Midterm Due Date: October 8th 2022
 Filename: style.css */
 
+
 html {
   position: relative;
   min-height: 100%;
 }
-main {
+
+/* this code is from the demo done during class */
+main { 
   /* Margin bottom by footer height */
   margin-bottom: 100px;
   width: 800px;
@@ -25,7 +28,5 @@ table{
   width: 100%;
   text-align: center;
 }
-.flash{
-  color: rgb(227,255,0);
-}
+
 
