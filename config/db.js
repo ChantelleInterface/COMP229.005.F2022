@@ -1,3 +1,8 @@
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Assignment Due Date: October 22nd 2022
+// Filename: db.js
+
 // In real project, never expose your credential in your code.
 let atlasDB = "mongodb+srv://dbuser:ygquknsvMvWZyh2k@cluster005.nn2nri9.mongodb.net/products?retryWrites=true&w=majority";
 
