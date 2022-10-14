@@ -63,14 +63,17 @@ Filename: header.ejs -->
             <i class="fas fa-laptop-code"></i> Services </a>
               </a>
           </li>  
-          <li class="nav-item">
-            <% if (title == "Inventory List") { %>
-                <a class="nav-link active" href="/inventory/list">
+          <li class="nav-item dropdown">
+            <% if (title == "Inventory List" || title == "Add a new Item") { %>
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> 
             <% } else { %>
-                <a class="nav-link" href="/inventory/list">
-            <% } %>            
-            <i class="fas fa-list"></i> Inventory List </a>
-            </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <% } %>
+            <i class="fas fa-list"></i> Inventory </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/inventory/list">Inventory List</a></li>
+              <li><a class="dropdown-item" href="/inventory/add">Add a new Item</a></li>
+            </ul>            
           </li> 
           <li class="nav-item">
             <% if(title == "Contact"){  %>
