@@ -20,6 +20,8 @@ Filename: about.css */
     .profile {
         box-shadow: 0 10px 15px 0 rgb(37,40,57);
         margin: 5px;
+        height: auto;
+        width: auto;
     }
     .about{
         padding: 50px;

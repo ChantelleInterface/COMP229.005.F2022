@@ -11,13 +11,20 @@ html {
 
 /* this code is from the demo done during class */
 main { 
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
+
   width: 800px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
 }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  text-align: center;
+
+}
+
 table{
   text-align: left;
 }

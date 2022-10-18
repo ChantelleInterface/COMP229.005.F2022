@@ -6,7 +6,7 @@ Filename: home.ejs -->
 <%- include('partials/header.ejs') %>
 
 <main>
-    
+
     <% if(title == "Home"){  %>
         <div class="home-section">
             <h1>Welcome</h1>
@@ -24,8 +24,7 @@ Filename: home.ejs -->
         </div>
     <% } %>
 
-    <% if(title == "About Me"){ %>  
-
+    <% if(title == "About Me"){ %>
         <link rel='stylesheet' href='/stylesheets/about.css' />
         
         <div class="about">
@@ -52,6 +51,6 @@ Filename: home.ejs -->
                         </div>
                     </div>
                 </div>
-    <% } %>
-
+        <% } %>
+</main>
     <%- include('partials/footer.ejs') %>
