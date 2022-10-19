@@ -6,7 +6,7 @@
 const passport = require('passport');
 
 module.exports = function() {
-    const User = require('../models/user');
+    const User = require('../models/users');
     
  // When a user is authenticated, Passport will
  // save its id_property to the session.

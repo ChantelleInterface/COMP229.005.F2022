@@ -3,29 +3,17 @@
 // Assignment Due Date: October 22nd 2022
 // Filename: users.js
 
+
 var express = require('express');
 var router = express.Router();
+let usersController = require('../controllers/users.controller');
+const { updateMany } = require('../models/users');
 
-/* GET users listing. */
-router.get('/users', function(req, res, next) {
-  res.render(
-    'users', 
-    { 
-      title: 'Users',
-      name: 'Chantelle' 
-    }
-  );
-});
+// GET users listing.
+router.get('/users', usersController.user);
 
-router.get('/contact', function(req, res, next) {
-  res.render(
-    'contact', 
-    { 
-      title: 'Contact',
-      name: 'Chantelle' 
-    }
-  );
-});
+// GET users listing.
+router.get('/contact', usersController.contact);
 
 module.exports = router;
 
