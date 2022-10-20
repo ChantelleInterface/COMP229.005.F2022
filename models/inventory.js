@@ -1,8 +1,4 @@
-// Student name: Chantelle Lawson
-// Student number: 301216199
-// Assignment Due Date: October 22nd 2022
-// Filename: users.js
-
+// Import
 let mongoose = require('mongoose');
 
 // Create a model class
@@ -23,4 +19,4 @@ let inventoryModel = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('Inventory', inventoryModel);
+module.exports = mongoose.model("Inventory", inventoryModel);

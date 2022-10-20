@@ -15,8 +15,8 @@ Filename: header.ejs -->
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
- <!-- Main Nav bar  -->  
- <nav class="navbar navbar-expand bg-dark navbar-dark">
+<!-- Main Nav bar  -->  
+<nav class="navbar navbar-expand bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="/assets/logo.jpg" alt="logo" style="width:150px;">
@@ -83,6 +83,13 @@ Filename: header.ejs -->
                 <% } %> 
                 <i class="far fa-envelope"></i> Contact </a>
               </a>
+          </li>  
+          <li class="nav-item">
+            <% if (typeof userName == 'string' && userName) { %>
+              <a class="nav-link" href="/users/signout" onclick="return confirm('Are you sure?')">Sign Out (<%= userName %>)</a>
+            <% } else { %>
+              <a class="nav-link" href="/users/signin">Signin</a>
+            <% } %>   
           </li>                     
           <li class="nav-item">
             <% if (title == "Users") { %>

@@ -1,11 +1,6 @@
-// Student name: Chantelle Lawson
-// Student number: 301216199
-// Assignment Due Date: October 22nd 2022
-// Filename: users.js
-
-const { get } = require('jquery');
 let mongoose = require('mongoose');
 let crypto = require('crypto');
+
 
 //create a new model class
 let UserSchema = mongoose.Schema(
@@ -39,7 +34,7 @@ let UserSchema = mongoose.Schema(
     }
 );
 
-UserSchema.virtual('fullName',)
+UserSchema.virtual('fullName')
 .get(function() {
     return this.firstName + ' ' + this.lastName;
 })
@@ -49,19 +44,12 @@ UserSchema.virtual('fullName',)
     this.lastName = splitName[1] || '';
 });
 
-// Middleware pre
 UserSchema.pre('save', function(next) {
-    if(this.password) {
+    if (this.password) {
         this.salt = Buffer.from(crypto.randomBytes(16).toString('base64'), 'base64');
-        this.password = this.hashPassword(this.password); 
+        this.password = this.hashPassword(this.password);
     }
     next();
-});
-
-// Middleware post
-UserSchema.post('save', function(next) {
-    console.log('The user "' + this.username + '" details were saved.');
-
 });
 
 UserSchema.methods.hashPassword = function(password) {
@@ -72,4 +60,28 @@ UserSchema.methods.authenticate = function(password) {
     return this.password === this.hashPassword(password);
 };
 
-module.exports = mongoose.model('user', UserSchema);
+UserSchema.statics.findUniqueUsername = function(username, suffix,
+    callback) {
+    var possibleUsername = username + (suffix || '');
+    this.findOne({
+        username: possibleUsername
+    }, (err, user) => {
+        if (!err) {
+            if (!user) {
+                callback(possibleUsername);
+            } else {
+                return this.findUniqueUsername(username, (suffix || 0) +
+                    1, callback);
+            }
+        } else {
+            callback(null);
+        }
+    });
+};
+
+UserSchema.set('toJSON', {
+    getters: true,
+    virtuals: true
+});
+
+module.exports = mongoose.model('User', UserSchema);
