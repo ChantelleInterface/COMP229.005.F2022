@@ -1,37 +1,36 @@
-  /* Student name: Chantelle Lawson
-  Student number: 301216199
-  Midterm Due Date: October 8th 2022
-  Filename: style.css */
+/* Student name: Chantelle Lawson
+Student number: 301216199
+Midterm Due Date: October 8th 2022
+Filename: style.css */
 
 
-  html {
-    position: relative;
-    min-height: 100%;
-  }
+html {
+  position: relative;
+  min-height: 100%;
+}
 
-  /* this code is from the demo done during class */
-  main { 
-    /* Margin bottom by footer height */
-    margin-bottom: 100px;
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-  }
-  body {
-    margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  table{
-    text-align: left;
-  }
-  h2 {
-    width: 100%;
-    text-align: center;
-  }
-    .flash{
-      color:  rgb(220,20,60);
-    }
-    
+/* this code is from the demo done during class */
+main { 
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+body {
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+table{
+  text-align: left;
+}
+h2 {
+  width: 100%;
+  text-align: center;
+}
+.flash{
+  color:  rgb(220,20,60);
+}
