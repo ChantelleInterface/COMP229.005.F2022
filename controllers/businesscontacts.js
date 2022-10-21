@@ -105,7 +105,7 @@ module.exports.processEditPage = (req, res, next) => {
         {
             // console.log(req.body);
             // refresh the book list
-            res.redirect('../business/list');
+            res.redirect('/business/list');
         }
     });
 }
@@ -128,5 +128,4 @@ module.exports.performDelete = (req, res, next) => {
             res.redirect('/business/list');
         }
     });
-
 }
