@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-let inventoryController = require('../controllers/inventory');
+let businessController = require('../controllers/business_contacts');
 
 // Connect to our model
-let Inventory = require('../models/inventory');
+let Inventory = require('../models/user');
 
 
 // helper function for guard purposes
@@ -20,20 +20,20 @@ function requireAuth(req, res, next)
 }
 
 /* GET list of items */
-router.get('/list', inventoryController.inventoryList);
+router.get('/list', businessController.businessContactsList);
 
 // Routers for edit
-router.get('/edit/:id', requireAuth, inventoryController.displayEditPage);
-router.post('/edit/:id', requireAuth, inventoryController.processEditPage);
+router.get('/edit/:id', requireAuth, businessController.displayEditPage);
+router.post('/edit/:id', requireAuth, businessController.processEditPage);
 
 // Delete
-router.get('/delete/:id', requireAuth, inventoryController.performDelete);
+router.get('/delete/:id', requireAuth, businessController.performDelete);
 
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', requireAuth, inventoryController.displayAddPage);
+router.get('/add', requireAuth, businessController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', requireAuth, inventoryController.processAddPage);
+router.post('/add', requireAuth, businessController.processAddPage);
 
 module.exports = router;

@@ -21,7 +21,7 @@ app.use(session({
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let inventoryRouter = require('../routes/inventory');
+let inventoryRouter = require('../routes/business_contacts');
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));

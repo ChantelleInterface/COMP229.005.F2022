@@ -3,7 +3,8 @@ Student number: 301216199
 Assignment Due Date: October 22nd 2022
 Filename: add_edit.ejs -->
 
-<%- include('../partials/header.ejs') %>
+
+<%- include ../partials/header.ejs %>
 
 <!-- Content for the Add_Edit page -->
 <div class="container">
@@ -15,83 +16,55 @@ Filename: add_edit.ejs -->
                 <div class="form-group">
                     <input type="hidden"
                         name="id"
-                        value="<%= item._id %>"
+                        value="<%= user._id %>"
                     >
-                    <label for="itemTextField">Item Name</label>
+                    <label for="FirstNameTextField">First Name</label>
                     <input type="text" class="form-control"
-                        id="itemTextField"
-                        placeholder="Enter the Item Name"
-                        name="item" 
-                        value="<%= item.item %>"
+                        id="FirstNameTextField"
+                        placeholder="Enter the First Name"
+                        name="firstName" 
+                        value="<%= user.firstName %>"
                         required>
                 </div>
                 <br />
                 <div class="form-group">
-                    <label for="QtyTextField">Quantity</label>
-                    <input type="number" class="form-control"
-                    id="QtyTextField"
-                    placeholder="00"
-                    name="qty" 
-                    value="<%= item.qty %>"
-                    required>
-                </div>
-                <br />
-                <div class="form-group">
-                    <label for="statusTextField">Status</label>
+                    <label for="LastNameTextField">Last Name</label>
                     <input type="text" class="form-control"
-                    id="statusTextField"
-                    placeholder="Enter a status"
-                    name="status" 
-                    value="<%= item.status %>"
-                    >
+                    id="LastNameTextField"
+                    placeholder="Enter the Last Name"
+                    name="lastName" 
+                    value="<%= user.lastName %>"
+                    required>
                 </div>
                 <br />
-                <div class="card">
-                    <div class="card-header">Size</div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="hightTextField">Hight</label>
-                            <input type="number" step="0.01" 
-                            class="form-control"
-                            id="hightTextField"
-                            placeholder="0.00"
-                            name="size_h" 
-                            value="<%= item.size.h %>"
-                            required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="widthTextField">Width</label>
-                            <input type="number" step="0.01"
-                            class="form-control"
-                            id="widthTextField"
-                            placeholder="0.00"
-                            name="size_w" 
-                            value="<%= item.size.w %>"
-                            required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="uomTextField">Hight</label>
-                            <input type="text" class="form-control"
-                            id="uomTextField"
-                            placeholder="cm"
-                            name="size_uom" 
-                            value="<%= item.size.uom %>"
-                            required>
-                        </div>
-                    </div>                    
-                </div>                
-                <br />
                 <div class="form-group">
-                    <label for="tagTextArea">Tags <span class="text-muted">[use , to separate tags]</span></label>
-                    <textarea type="text" class="form-control"
-                    id="tagTextArea"
-                    placeholder="Enter the tags of the item"
-                    name="tags" 
+                    <label for="PhoneNumberTextField">Phone Number</label>
+                    <input type="tel" class="form-control"
+                    id="PhoneNumberTextField"
+                    placeholder="Enter the phone number"
+                    name="phone" 
+                    value="<%= user.phone %>"
                     required>
-                    <%= item.tags %>
-                    </textarea>
+                </div>
+            </br>
+            <div class="form-group">
+                <label for="EmailTextField">Email</label>
+                <input type="text" class="form-control"
+                id="EmailTextField"
+                placeholder="Enter the email address"
+                name="email" 
+                value="<%= user.email %>"
+                required>
+            </div>
+        </br>
+        <div class="form-group">
+                    <label for="UsernameTextField">Username</label>
+                    <input type="text" class="form-control"
+                    id="UsernameTextField"
+                    placeholder="Enter the Username"
+                    name="username"
+                    value="<%= user.username %>"
+                    required>
                 </div>
                 <br/>
 
@@ -111,4 +84,4 @@ Filename: add_edit.ejs -->
     </div>
 </div>
 
-<%- include('../partials/footer.ejs') %>
+<%- include ../partials/footer.ejs %>

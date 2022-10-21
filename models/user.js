@@ -1,5 +1,6 @@
 let mongoose = require('mongoose');
 let crypto = require('crypto');
+const { type } = require('os');
 
 
 //create a new model class
@@ -9,7 +10,16 @@ let UserSchema = mongoose.Schema(
         lastName: String,
         email: {
             type: String,
-            match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+            // match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+            
+        },
+        phone: {
+            type: String,
+            // type: String,
+            // match: ["[0-9]{3}-[0-9]{2}-[0-9]{3}", "Please enter a valid e-mail address"],
+            validate: [(phone) => {
+                return phone && phone.length > 9;
+            }, 'Phone number must be at least 9 characters long']
         },
         username: {
             type: String,
