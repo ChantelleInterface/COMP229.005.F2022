@@ -50,7 +50,7 @@ module.exports.renderSignup = function(req, res, next) {
             user: newUser
         });
     } else {
-        return res.redirect('/');
+        return res.redirect('/home');
     }
 };
 
@@ -76,11 +76,11 @@ module.exports.signup = function(req, res, next) {
         }
         req.login(user, (err) => {
             if (err) return next(err);
-            return res.redirect('/');
+            return res.redirect('/home');
         });
     });
     } else {
-        return res.redirect('/');
+        return res.redirect('/home');
     }
 };
 
@@ -107,5 +107,5 @@ module.exports.signin = function(req, res, next){
 
 module.exports.signout = function(req, res, next) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/home');
 };
