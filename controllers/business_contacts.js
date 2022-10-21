@@ -11,7 +11,7 @@ exports.businessContactsList = function(req, res, next) {
         }
         else
         {
-            res.render('inventory/list', {
+            res.render('business/list', {
                 title: 'Business Contacts', 
                 BusinessContactsList  : businessContactsList,
                 userName: req.user ? req.user.username : ''
@@ -24,7 +24,7 @@ module.exports.displayAddPage = (req, res, next) => {
 
     let newUser = businessContactsModel();
 
-    res.render('inventory/add_edit', {
+    res.render('business/add_edit', {
         title: 'Add a new User',
         user: newUser,
         userName: req.user ? req.user.username : ''
@@ -53,7 +53,7 @@ module.exports.processAddPage = (req, res, next) => {
         {
             // refresh the book list
             console.log(newUser)
-            res.redirect('/inventory/list');
+            res.redirect('/business/list');
         }
     });
     
@@ -72,7 +72,7 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('inventory/add_edit', {
+            res.render('business/add_edit', {
                 title: 'Edit User', 
                 user: userToEdit,
                 userName: req.user ? req.user.username : ''
@@ -105,7 +105,7 @@ module.exports.processEditPage = (req, res, next) => {
         {
             // console.log(req.body);
             // refresh the book list
-            res.redirect('../inventory/list');
+            res.redirect('../business/list');
         }
     });
 }
@@ -125,7 +125,7 @@ module.exports.performDelete = (req, res, next) => {
         else
         {
             // refresh the book list
-            res.redirect('/inventory/list');
+            res.redirect('/business/list');
         }
     });
 

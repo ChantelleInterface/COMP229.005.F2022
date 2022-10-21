@@ -92,7 +92,7 @@ module.exports.renderSignin = function(req, res, next) {
         });
     } else {
         console.log(req.user);
-        return res.redirect('/');
+        return res.redirect('/business/list');
     }
 };
 
