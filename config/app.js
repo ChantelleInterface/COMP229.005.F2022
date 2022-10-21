@@ -1,19 +1,27 @@
-// Student name: Chantelle Lawson
-// Student number: 301216199
-// Midterm Due Date: October 8th 2022
-// Filename: application.js
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let compress = require('compression');
+let bodyParser = require('body-parser');
+let methodOverride = require('method-override');
+let session = require('express-session');
+let flash = require('connect-flash');
+let passport = require('passport');
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let app = express();
 
-var indexRouter = require('../routes/index');
-var usersRouter = require('../routes/users');
-var inventoryRouter = require('../routes/inventory.router');
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: "sessionSecret"
+}));
 
-var app = express();
+
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let inventoryRouter = require('../routes/business_contacts');
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -25,6 +33,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../node_modules')));
+
+// Sets up passport
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

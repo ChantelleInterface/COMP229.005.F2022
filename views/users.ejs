@@ -3,10 +3,10 @@ Student number: 301216199
 Assignment Due Date: October 22nd 2022
 Filename: users.ejs -->
 
-<% include partials/header.ejs %>
+<%- include('partials/header.ejs') %>
 
     <h2><%= title %></h2>
-    <p>This is <%= name %>'s page</p>
+    <p>Welcome <%= userName %> to <%= title %> page</p>
 
-<% include partials/footer.ejs %>
+<%- include('partials/footer.ejs') %>
  

@@ -3,11 +3,6 @@ Student number: 301216199
 Midterm Due Date: October 8th 2022
 Filename: about.css */
 
-
-    body {
-        font-family: Helvetica, sans-serif;
-        margin: 0;
-    }
     html {
         box-sizing: content-box;
     }

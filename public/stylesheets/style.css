@@ -18,19 +18,19 @@ main {
   margin-right: auto;
   text-align: left;
 }
+body {
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 table{
   text-align: left;
 }
 h2 {
-  text-align: center;
-
-}
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100%;
   text-align: center;
 }
-
-
+.flash{
+  color:  rgb(220,20,60);
+}
