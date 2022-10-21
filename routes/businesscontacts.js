@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let businessController = require('../controllers/business_contacts');
+let businessController = require('../controllers/businesscontacts');
 
 // Connect to our model
 let Inventory = require('../models/user');

@@ -18,10 +18,9 @@ app.use(session({
   secret: "sessionSecret"
 }));
 
-
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let inventoryRouter = require('../routes/business_contacts');
+let businessRouter = require('../routes/businesscontacts');
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -42,7 +41,8 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/inventory', inventoryRouter);
+app.use('/business', businessRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
