@@ -32,8 +32,8 @@ function onChange() {
     const confirm = document.querySelector('input[name=password_confirm]');
     
     if (confirm.value === password.value) {
-      confirm.setCustomValidity('');
+        confirm.setCustomValidity('');
     } else {
-      confirm.setCustomValidity('Passwords do not match');
+        confirm.setCustomValidity('Passwords do not match');
     }
 }

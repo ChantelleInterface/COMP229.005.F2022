@@ -3,7 +3,7 @@ var router = express.Router();
 let indexController = require('../controllers/index.controller');
 
 /* GET home page. */
-router.get('/', indexController.home);
+router.get('/home', indexController.home);
 
 // Renders the projects page
 router.get('/projects', indexController.projects);
