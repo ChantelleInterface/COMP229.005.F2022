@@ -98,7 +98,7 @@ module.exports.renderSignin = function(req, res, next) {
 
 module.exports.signin = function(req, res, next){
     passport.authenticate('local', {
-        successRedirect: req.session.url || '/',
+        successRedirect: req.session.url || '/business/list',
         failureRedirect: '/users/signin',
         failureFlash: true
     })(req, res, next);
