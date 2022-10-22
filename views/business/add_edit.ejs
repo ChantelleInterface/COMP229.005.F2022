@@ -67,6 +67,26 @@ Filename: add_edit.ejs -->
                     required>
                 </div>
                 <br/>
+                <div class="form-group">
+                    <label for="PasswordTextField">Username</label>
+                    <input type="password" class="form-control"
+                    id="PasswordTextField"
+                    placeholder="Enter default password"
+                    name="password"
+                    value="<%= user.password %>"
+                    required>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group">
+                    <label for="ConfirmTextField">Username</label>
+                    <input type="password" class="form-control"
+                    id="ConfirmTextField"
+                    placeholder="Confirm default password"
+                    name="password_confirm"
+                    required>
+                </div>
+                <br/>
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> 

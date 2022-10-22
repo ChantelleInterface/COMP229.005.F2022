@@ -40,7 +40,9 @@ module.exports.processAddPage = (req, res, next) => {
         lastName: req.body.lastName,
         phone: req.body.phone,
         email: req.body.email,
-        username: req.body.username
+        username: req.body.username,
+        password: req.body.password,
+        password_confirm: req.body.password_confirm
     });
 
     businessContactsModel.create(newUser, (err, item) =>{
@@ -92,7 +94,9 @@ module.exports.processEditPage = (req, res, next) => {
         lastName: req.body.lastName,
         phone: req.body.phone,
         email: req.body.email,
-        username: req.body.username
+        username: req.body.username,
+        password: req.body.password,
+        password_confirm: req.body.password_confirm
     });
 
     businessContactsModel.updateOne({_id: id}, updatedUser, (err) => {
