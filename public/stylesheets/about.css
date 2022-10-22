@@ -1,38 +1,46 @@
 /* Student name: Chantelle Lawson
 Student number: 301216199
-Midterm Due Date: October 8th 2022
+Midterm Due Date: October 22nd 2022
 Filename: about.css */
 
-    html {
-        box-sizing: content-box;
-    }
-    .col{
-        float: left;
-        width: 50%;
-        margin-bottom: 10px;
-        padding: 0 8px;
-    }    
-    .profile {
-        box-shadow: 0 10px 15px 0 rgb(37,40,57);
-        margin: 5px;
-    }
-    .about{
-        padding: 50px;
-        text-align: center;
-        background-color:  rgb(89,92,113);
-        color: rgb(241,242,252);
-    }
-    .container {
-        padding: 0 16px;
-    }
+.row{
+    
+    width: 100%;
+}
+
+.col{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 8px;
+}    
+
+.profile {
+    box-shadow: 0 10px 15px 0 rgb(171, 174, 192);
+    padding: 6px;
+    opacity: 0.95;
+    margin: 5px;
+}
+    
+.about{
+    padding: 50px;
+    text-align: center;
+    font-size: large;
+    opacity: 0.95;    
+}
+    
+.container {
+    padding: 0 16px;
+    font-size: xx-large;
+}
     .title {
         color: rgb(203,206,224);
     }
 
-    /* This code is from w3schools */
-    @media screen and (max-width: 650px) {
-        .col{
-        width: 100%;
-        display: block;
-        }
-    }
+/* This code is from w3schools */
+@media screen and (max-width: 650px) {
+.col{
+    width: 100%;
+    display: block;
+}
+}

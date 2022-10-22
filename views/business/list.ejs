@@ -6,6 +6,7 @@ Filename: list.ejs -->
 <%- include('../partials/header.ejs') %>
 
     <!-- Main Content -->
+
     <main class="container">
     <div class="row">
         <h1><%= title %></h1>
@@ -13,10 +14,9 @@ Filename: list.ejs -->
         <div>
             <a href="/business/add" class="btn btn-primary align-self-end" role="button">
                 <i class="fas fa-plus-circle"></i> 
-                Add a new User
+                Add a New Contact
             </a>                
         </div>
-
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
@@ -48,4 +48,5 @@ Filename: list.ejs -->
         </div>
     </div>
 </main>
+
 <%- include('../partials/footer.ejs') %>

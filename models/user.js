@@ -1,7 +1,11 @@
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Assignment Due Date: October 22nd 2022
+// Filename: user.js
+
 let mongoose = require('mongoose');
 let crypto = require('crypto');
 const { type } = require('os');
-
 
 //create a new model class
 let UserSchema = mongoose.Schema(

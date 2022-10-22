@@ -1,7 +1,7 @@
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Assignment Due Date: October 22nd 2022
 // Filename: appclient.js
-// Student: Julio Vinicius
-// StudentId: 123456789
-// Date: Jun 02, 2022
 
 console.log('app script is working.');
 
