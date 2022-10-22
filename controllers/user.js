@@ -106,6 +106,8 @@ module.exports.signin = function(req, res, next){
 }
 
 module.exports.signout = function(req, res, next) {
-    req.logout();
-    res.redirect('/users/signin');
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/users/signin');
+    });
 };
