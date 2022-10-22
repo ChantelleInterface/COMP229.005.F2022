@@ -1,12 +1,14 @@
+<!-- Student name: Chantelle Lawson
+Student number: 301216199
+Midterm Due Date: October 22nd 2022
+Filename: signin.ejs -->
+
 <%- include('../partials/header.ejs') %>
 
-<div class="container">
-    <div class="row">
-
-        <div class="offset-md-3 col-md-3">
-            <h1><%= title %></h1>
-            <% for(var i in messages) { %>
-                <div class="flash"><%= messages[i] %></div>
+<div class="offset-md-3 col-md-3">
+    <h1><%= title %></h1>
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
             <% } %>
             <form action="/users/signin" method="post">
                 <div class="form-group">

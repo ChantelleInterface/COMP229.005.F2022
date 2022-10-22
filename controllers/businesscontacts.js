@@ -1,5 +1,9 @@
-// create a reference to the model
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Assignment Due Date: October 22nd 2022
+// Filename: businesscontacts.js
 
+// create a reference to the model
 let businessContactsModel = require('../models/user');
 
 exports.businessContactsList = function(req, res, next) {  
@@ -25,7 +29,7 @@ module.exports.displayAddPage = (req, res, next) => {
     let newUser = businessContactsModel();
 
     res.render('business/add_edit', {
-        title: 'Add a new User',
+        title: 'Add a New Contact',
         user: newUser,
         userName: req.user ? req.user.username : ''
     })          
@@ -75,7 +79,7 @@ module.exports.displayEditPage = (req, res, next) => {
         {
             //show the edit view
             res.render('business/add_edit', {
-                title: 'Edit User', 
+                title: 'Edit Contact', 
                 user: userToEdit,
                 userName: req.user ? req.user.username : ''
             })
