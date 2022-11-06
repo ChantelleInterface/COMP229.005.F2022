@@ -1,19 +1,9 @@
 let User = require('../models/user');
 let passport = require('passport');
 
-exports.user = function (req, res, next) {
-    res.render('users', {
-        title: 'User',
-        userName: req.user ? req.user.username : '',
-    });
-}
+let jwt = require('jsonwebtoken');
+let config = require('../config/config');
 
-exports.contact = function (req, res, next) {
-    res.render('contact', {
-        title: 'Contact',
-        userName: req.user ? req.user.username : '',
-    });
-}
 
 function getErrorMessage(err) {
     console.log("===> Error: " + err);
@@ -31,7 +21,6 @@ function getErrorMessage(err) {
         }
     } else {
         for (var errName in err.errors) {
-
             if (err.errors[errName].message) message = err.errors[errName].message;
         }
     }
@@ -39,73 +28,79 @@ function getErrorMessage(err) {
     return message;
 };
 
-module.exports.renderSignup = function(req, res, next) {
-    if (!req.user) {
-      // creates a empty new user object.
-        let newUser = User();
-
-        res.render('auth/signup', {
-            title: 'Sign-up Form',
-            messages: req.flash('error'),
-            user: newUser
-        });
-    } else {
-        return res.redirect('/');
-    }
-};
-
 module.exports.signup = function(req, res, next) {
-    if (!req.user && req.body.password === req.body.password_confirm) {
-        console.log(req.body);
-        
-        let user = new User(req.body);
-        user.provider = 'local';
-        console.log(user);
-        
-        user.save((err) => {
-        if (err) {
-            let message = getErrorMessage(err);
+    
+    console.log(req.body);
 
-            req.flash('error', message);
-          // return res.redirect('/users/signup');
-            return res.render('auth/signup', {
-                title: 'Sign-up Form',
-                messages: req.flash('error'),
-                user: user
-            });
-        }
-        req.login(user, (err) => {
-            if (err) return next(err);
-            return res.redirect('/');
+    let user = new User(req.body);
+    user.provider = 'local';
+    console.log(user);
+
+    user.save((err) => {
+        if (err) {
+        let message = getErrorMessage(err);
+
+        return res.status(400).json(
+            {
+            success: false, 
+            message: message
+        });
+    }
+    return res.json({
+            success: true,
+            message: 'User created successfully!'
         });
     });
-    } else {
-        return res.redirect('/');
-    }
-};
-
-module.exports.renderSignin = function(req, res, next) {
-    if (!req.user) {
-        res.render('auth/signin', {
-            title: 'Sign-in Form',
-            messages: req.flash('error') || req.flash('info')
-        });
-    } else {
-        console.log(req.user);
-        return res.redirect('/');
-    }
 };
 
 module.exports.signin = function(req, res, next){
-    passport.authenticate('local', {
-        successRedirect: req.session.url || '/',
-        failureRedirect: '/users/signin',
-        failureFlash: true
-    })(req, res, next);
-    delete req.session.url;
-}
+    passport.authenticate(
+        'login', 
+    async (err, user, info) => {
+        try {
+        if (err || !user) {
+            return res.status(400).json({ 
+                success: false, 
+                message: err || info.message
+            });
+        }
+    
+        req.login(
+            user,
+            { session: false },
+            async (error) => {
+                if (error) {
+                return next(error);
+            }
 
-module.exports.signout = function(req, res, next) {
-    req.logout();
-    res.redirect('/');
-};
+              // Generating the JWT token.
+                const payload = 
+                {
+                    id: user._id,
+                    email: user.email 
+                };
+                const token = jwt.sign(
+                {
+                    payload: payload
+                }, 
+                config.SECRETKEY, 
+                {
+                    algorithm: 'HS512', 
+                    expiresIn: "20min"
+                });
+                return res.json({
+                success: true,
+                token: token 
+                });
+            });
+        } catch (error) {
+    
+            console.log(error);
+            return res.status(400).json(
+            {
+                success: false,
+                message: getErrorMessage(error)
+            });
+        }
+    })(req, res, next);
+}

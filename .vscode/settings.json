@@ -1,8 +1,14 @@
 {
     "cSpell.words": [
         "appclient",
+        "ATLASDB",
+        "dbapp",
         "dbuser",
         "fullname",
-        "reinit"
+        "LOCALDB",
+        "reinit",
+        "SECRETKEY",
+        "signin",
+        "tokencheck"
     ]
 }
