@@ -21,12 +21,12 @@ function requireAuth(req, res, next)
 router.get('/list', inventoryController.inventoryList);
 
 // Routers for edit
-router.put('/edit/:id', passport.authenticate('tokencheck', {session: false}), inventoryController.processEditPage);
+router.put('/edit/:id', passport.authenticate('tokencheck', {session: false}), inventoryController.processEdit);
 
 // Delete
 router.delete('/delete/:id', passport.authenticate('tokencheck', {session: false}), inventoryController.performDelete);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', passport.authenticate('tokencheck', {session: false}), inventoryController.processAddPage);
+router.post('/add', passport.authenticate('tokencheck', {session: false}), inventoryController.processAdd);
 
 module.exports = router;
