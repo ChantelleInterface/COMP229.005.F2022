@@ -35,6 +35,42 @@ module.exports.inventoryList = function(req, res, next) {
     });
 }
 
+module.exports.processAdd = (req, res, next) => {
+
+    let newItem = InventoryModel({
+        _id: req.body.id,
+        item: req.body.item,
+        qty: req.body.qty,
+        status: req.body.status,
+        size : {
+            h: req.body.size.h,
+            w: req.body.size.w,
+            uom: req.body.size.uom,
+        },
+        tags: req.body.tags.split(",").map(word => word.trim())
+    });
+
+    InventoryModel.create(newItem, (err, item) =>{
+        if(err)
+        {
+            console.log(err);
+
+            res.status(400).json(
+                {
+                    success: false,
+                    message: getErrorMessage(err)
+                }
+            )
+        }
+        else
+        {
+        
+            console.log(item);
+            res.status(200).json(item);  
+        }
+    });
+}
+
 module.exports.processEdit = (req, res, next) => {
 
     let id = req.params.id
@@ -45,9 +81,9 @@ module.exports.processEdit = (req, res, next) => {
         qty: req.body.qty,
         status: req.body.status,
         size : {
-            h: req.body.size_h,
-            w: req.body.size_w,
-            uom: req.body.size_uom,
+            h: req.body.size.h,
+            w: req.body.size.w,
+            uom: req.body.size.uom,
         },
         tags: req.body.tags.split(",").map(word => word.trim())
     });
@@ -108,42 +144,4 @@ module.exports.performDelete = (req, res, next) => {
         }
     });
 
-}
-
-
-module.exports.processAdd = (req, res, next) => {
-
-    let newItem = InventoryModel({
-        _id: req.body.id,
-        item: req.body.item,
-        qty: req.body.qty,
-        status: req.body.status,
-        size : {
-            h: req.body.size_h,
-            w: req.body.size_w,
-            uom: req.body.size_uom,
-        },
-        tags: req.body.tags.split(",").map(word => word.trim())
-    });
-
-    InventoryModel.create(newItem, (err, item) =>{
-        if(err)
-        {
-            console.log(err);
-
-            res.status(400).json(
-                {
-                    success: false,
-                    message: getErrorMessage(err)
-                }
-            )
-        }
-        else
-        {
-        
-            console.log(item);
-            res.status(200).json(item);  
-        }
-    });
-    
 }
