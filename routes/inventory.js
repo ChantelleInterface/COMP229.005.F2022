@@ -27,6 +27,6 @@ router.put('/edit/:id', passport.authenticate('tokencheck', {session: false}), i
 router.delete('/delete/:id', passport.authenticate('tokencheck', {session: false}), inventoryController.performDelete);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', inventoryController.processAdd);
+router.post('/add', passport.authenticate('tokencheck', {session: false}), inventoryController.processAdd);
 
 module.exports = router;

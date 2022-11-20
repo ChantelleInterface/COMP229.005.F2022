@@ -76,7 +76,7 @@ module.exports.processEdit = (req, res, next) => {
     let id = req.params.id
 
     let updatedItem = InventoryModel({
-        _id: req.body.id,
+        _id: id,
         item: req.body.item,
         qty: req.body.qty,
         status: req.body.status,

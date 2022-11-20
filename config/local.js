@@ -6,7 +6,6 @@ const User = require('../models/user');
 const config = require('./config');
 
 module.exports = function() {
-
     passport.use(
         'tokencheck',
         new JWTstrategy(
