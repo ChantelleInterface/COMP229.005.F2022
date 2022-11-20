@@ -67,7 +67,7 @@ module.exports.signin = function(req, res, next){
     
         req.login(
             user,
-            { session: false },
+            { session: false }, // will not store session
             async (error) => {
                 if (error) {
                 return next(error);
@@ -85,8 +85,8 @@ module.exports.signin = function(req, res, next){
                 }, 
                 config.SECRETKEY, 
                 {
-                    algorithm: 'HS512', 
-                    expiresIn: "20min"
+                    algorithm: 'HS512', // will ecrypt token
+                    expiresIn: "20min" // session will expire in 20 minutes
                 });
                 return res.json({
                 success: true,
