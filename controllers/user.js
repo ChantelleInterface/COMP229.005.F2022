@@ -35,7 +35,7 @@ function getErrorMessage(err) {
                     message = 'Something went wrong';
         }
     } else {
-        for (var errName in err.errors) {
+        for (let errName in err.errors) {
 
             if (err.errors[errName].message) message = err.errors[errName].message;
         }
@@ -72,7 +72,7 @@ module.exports.signup = function(req, res, next) {
             let message = getErrorMessage(err);
 
             req.flash('error', message);
-          // return res.redirect('/users/signup');
+          
             return res.render('auth/signup', {
                 title: 'Sign-up Form',
                 messages: req.flash('error'),
