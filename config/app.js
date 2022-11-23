@@ -6,12 +6,17 @@ let compress = require("compression");
 let bodyParser = require("body-parser");
 let methodOverride = require("method-override");
 let passport = require("passport");
+let cors = require("cors");
 
 let indexRouter = require("../routes/index");
 let usersRouter = require("../routes/users");
 let inventoryRouter = require("../routes/inventory");
 
 let app = express();
+
+//Enable cors
+app.use(cors());
+app.options('*', cors());
 
 app.use(logger("dev"));
 app.use(express.json());
