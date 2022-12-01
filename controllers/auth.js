@@ -44,7 +44,8 @@ exports.isAllowed = async function (req, res, next){
 
     try {
         let id = req.params.id
-        let inventoryItem = await Inventory.findById(id).populate('owner');   
+        let inventoryItem = await Inventory.findById(id).populate('owner'); 
+        console.log(inventoryItem);  
         
         // If there is no item found.
         if(inventoryItem == null){

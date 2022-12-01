@@ -47,7 +47,9 @@ module.exports.processAdd = (req, res, next) => {
             w: req.body.size.w,
             uom: req.body.size.uom,
         },
-        tags: req.body.tags.split(",").map(word => word.trim())
+        tags: (req.body.tags == null || req.body.tags == "") ? "": req.body.tags.split(",").map(word => word.trim()),
+        // If it does not have an owner it assumes the ownership otherwise it transfers it.
+        owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner
     });
 
     InventoryModel.create(newItem, (err, item) =>{
