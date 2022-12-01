@@ -35,7 +35,7 @@ exports.requireAuth = function(req, res, next)
             
             req.payload = user;
             next();
-      })(req, res, next);
+        })(req, res, next);
 }
 
 

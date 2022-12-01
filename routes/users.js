@@ -1,9 +1,10 @@
 let express = require('express');
 let router = express.Router();
 let usersController = require('../controllers/user');
-let passport = require('passport');
+let authController = require('../controllers/auth');
 
-// GET users listing.
+/* GET users listing. */
+router.get('/me', authController.requireAuth, usersController.myprofile);
 
 router.post('/signup', usersController.signup);
 
