@@ -1,15 +1,14 @@
 let mongoose = require('mongoose');
 let crypto = require('crypto');
+let Schema = mongoose.Schema;
 
-
-//create a new model class
 let UserSchema = mongoose.Schema(
     {
         firstName: String,
         lastName: String,
         email: {
             type: String,
-            match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+            match: [/.+\@.+\..+/, "Please fill a valid e-mail address"]
         },
         username: {
             type: String,
@@ -21,12 +20,10 @@ let UserSchema = mongoose.Schema(
             type: String,
             validate: [(password) => {
                 return password && password.length > 6;
-            }, 'Password must be at least 6 characters long']
+            }, 'Password should be longer']
         },
-        salt: String,
-        created: {
-            type: Date,
-            default: Date.now
+        salt: {
+            type: String
         },
         provider: {
             type: String,

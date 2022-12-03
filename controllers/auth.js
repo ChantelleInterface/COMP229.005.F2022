@@ -35,7 +35,7 @@ exports.requireAuth = function(req, res, next)
             
             req.payload = user;
             next();
-        })(req, res, next);
+      })(req, res, next);
 }
 
 
@@ -44,8 +44,7 @@ exports.isAllowed = async function (req, res, next){
 
     try {
         let id = req.params.id
-        let inventoryItem = await Inventory.findById(id).populate('owner'); 
-        console.log(inventoryItem);  
+        let inventoryItem = await Inventory.findById(id).populate('owner');   
         
         // If there is no item found.
         if(inventoryItem == null){
