@@ -92,8 +92,9 @@ module.exports.processEdit = (req, res, next) => {
         owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner
     });
 
-    InventoryModel.updateOne({_id: id}, updatedItem, (err) => {
-        if(err)
+    InventoryModel.updateOne({_id: id}, updatedItem, (err, result) => {
+        console.log(err, result);
+        if(err || result.modifiedCount)
         {
             console.log(err);
 
@@ -125,7 +126,8 @@ module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 
 
-    InventoryModel.remove({_id: id}, (err) => {
+    InventoryModel.findByIdAndRemove({_id: id}, {rawResult:true}, (err, result) => {
+        console.log(err, result);
         if(err)
         {
             console.log(err);
