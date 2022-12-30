@@ -1,29 +1,14 @@
-// Student name: Chantelle Lawson
-// Student number: 301216199
-// Assignment Due Date: October 22nd 2022
-// Filename: user.js
-
 let mongoose = require('mongoose');
 let crypto = require('crypto');
-const { type } = require('os');
+let Schema = mongoose.Schema;
 
-//create a new model class
 let UserSchema = mongoose.Schema(
     {
         firstName: String,
         lastName: String,
         email: {
             type: String,
-            // match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
-            
-        },
-        phone: {
-            type: String,
-            // type: String,
-            // match: ["[0-9]{3}-[0-9]{2}-[0-9]{3}", "Please enter a valid e-mail address"],
-            validate: [(phone) => {
-                return phone && phone.length > 9;
-            }, 'Phone number must be at least 9 characters long']
+            match: [/.+\@.+\..+/, "Please fill a valid e-mail address"]
         },
         username: {
             type: String,
@@ -35,13 +20,22 @@ let UserSchema = mongoose.Schema(
             type: String,
             validate: [(password) => {
                 return password && password.length > 6;
-            }, 'Password must be at least 6 characters long']
+            }, 'Password should be longer']
         },
-        salt: String,
+        salt: {
+            type: String
+        },
+        provider: {
+            type: String,
+            required: 'Provider is required'
+        },
+        providerId: String,
+        providerData: {},
         created: {
             type: Date,
             default: Date.now
-        }
+        },
+        admin: Boolean
     },
     {
         collection: "user"
@@ -76,7 +70,7 @@ UserSchema.methods.authenticate = function(password) {
 
 UserSchema.statics.findUniqueUsername = function(username, suffix,
     callback) {
-    let possibleUsername = username + (suffix || '');
+    var possibleUsername = username + (suffix || '');
     this.findOne({
         username: possibleUsername
     }, (err, user) => {

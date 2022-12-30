@@ -6,20 +6,17 @@
 let express = require('express');
 let router = express.Router();
 let usersController = require('../controllers/user');
-let passport = require('passport');
+let authController = require('../controllers/auth');
 
-// GET users listing.
-router.get('/users', usersController.user);
+/* GET users listing. */
+router.get('/me', authController.requireAuth, usersController.myprofile);
 
-// GET users listing.
-router.get('/contact', usersController.contact);
-
-router.get('/signup', usersController.renderSignup);
+// router.get('/signup', usersController.renderSignup);
 router.post('/signup', usersController.signup);
 
-router.get('/signin', usersController.renderSignin);
+// router.get('/signin', usersController.renderSignin);
 router.post('/signin', usersController.signin);
 
-router.get('/signout', usersController.signout);
+// router.get('/signout', usersController.signout);
 
 module.exports = router;
