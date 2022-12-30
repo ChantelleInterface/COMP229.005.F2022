@@ -1,7 +1,8 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
-let cookieParser = require('cookie-parser');
+
+let app = express();
 let logger = require('morgan');
 let compress = require('compression');
 let bodyParser = require('body-parser');
@@ -9,15 +10,8 @@ let methodOverride = require('method-override');
 let passport = require('passport');
 let cors = require('cors');
 
-var indexRouter = require('../routes/index');
-var usersRouter = require('../routes/users');
-var inventoryRouter = require('../routes/inventory');
 
-app.use(session({
-  saveUninitialized: true,
-  resave: true,
-  secret: "sessionSecret"
-}));
+
 
 
 let indexRouter = require('../routes/index');
@@ -37,7 +31,7 @@ app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/business', businessRouter);
+app.use('/inventory', inventoryRouter);
 
 
 // catch 404 and forward to error handler
