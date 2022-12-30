@@ -1,7 +1,8 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 let compress = require('compression');
 let bodyParser = require('body-parser');
 let methodOverride = require('method-override');
@@ -12,11 +13,20 @@ var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 var inventoryRouter = require('../routes/inventory');
 
-var app = express();
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: "sessionSecret"
+}));
 
-// Enable cors
-app.use(cors());
-app.options('*', cors());
+
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let inventoryRouter = require('../routes/inventory');
+
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,7 +37,8 @@ app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/inventory', inventoryRouter);
+app.use('/business', businessRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

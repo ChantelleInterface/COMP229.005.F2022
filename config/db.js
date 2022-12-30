@@ -1,4 +1,5 @@
-let config = require('./config');
+// Do not expose your credentials in your code.
+let atlasDB = "mongodb+srv://dbuser:ygquknsvMvWZyh2k@cluster005.nn2nri9.mongodb.net/products?retryWrites=true&w=majority";
 
 let mongoose = require('mongoose');
 

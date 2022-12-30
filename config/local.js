@@ -1,3 +1,8 @@
+// Student name: Chantelle Lawson
+// Student number: 301216199
+// Assignment Due Date: October 22nd 2022
+// Filename: local.js
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
