@@ -1,5 +1,4 @@
 // create a reference to the model
-let InventoryModel = require('../models/inventory');
 let firebaseAdmin = require('firebase-admin');
 
 
@@ -61,7 +60,7 @@ module.exports.processEdit = async (req, res, next) => {
     try {
         let id = req.params.id;
 
-        let updatedItem = InventoryModel({
+        let updatedItem = {
             _id: id,
             item: req.body.item,
             qty: req.body.qty,
@@ -73,32 +72,21 @@ module.exports.processEdit = async (req, res, next) => {
             },
             tags: (req.body.tags == null || req.body.tags == "") ? "": req.body.tags.split(",").map(word => word.trim()),
             // If it does not have an owner it assumes the ownership otherwise it transfers it.
-            owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner 
-        });
-    
-        InventoryModel.updateOne({_id: id}, updatedItem, (err, result) => {
-            console.log(err, result);
-            if(err || result.modifiedCount == 0)
+            // owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner 
+        };
+        
+        let db = firebaseAdmin.firestore();
+
+        let response = await db.collection('inventory').doc(id).set(updatedItem);
+        console.log(response);
+        
+        res.status(200).json(
             {
-                console.log(err);
- 
-                return res.status(400).json(
-                    { 
-                        success: false, 
-                        message: err ? getErrorMessage(err): 'Item Not Found.'
-                    }
-                );
+                success: true,
+                message: 'Item updated successfully'
             }
-            else
-            {
-                res.status(200).json(
-                    {
-                        success: true,
-                        message: 'Item updated successfully.'
-                    }
-                )
-            }
-        });
+        )
+            
     } catch (error) {
         return res.status(400).json(
             { 
@@ -115,29 +103,18 @@ module.exports.performDelete = async (req, res, next) => {
     try {
         let id = req.params.id;
 
-        InventoryModel.findByIdAndRemove({_id: id}, {rawResult:true}, (err, result) => {
-            console.log(err, result);
-            if(err || result.value == null)
-            {
-                console.log(err);
- 
-                return res.status(400).json(
-                    { 
-                        success: false, 
-                        message: err ? getErrorMessage(err): 'Item Not Found.'
-                    }
-                );
+        let db = firebaseAdmin.firestore();
+
+        let response = await db.collection('inventory').doc(id).delete();
+        console.log(response);
+
+        res.status(200).json(
+            { 
+                success: true,
+                message: 'Item deleted successfully'
             }
-            else
-            {
-                res.status(200).json(
-                    {
-                        success: true,
-                        message: 'Item deleted successfully.'
-                    }
-                )
-            }
-        });
+        )
+
     } catch (error) {
         return res.status(400).json(
             { 
@@ -146,8 +123,6 @@ module.exports.performDelete = async (req, res, next) => {
             }
         );
     }
-
-    
 
 }
 
