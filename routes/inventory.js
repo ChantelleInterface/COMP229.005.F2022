@@ -7,6 +7,10 @@ let authController = require('../controllers/auth');
 /* GET list of items */
 router.get('/list', inventoryController.inventoryList);
 
+/* GET item by id */
+router.get('/get/:id', inventoryController.getOne);
+
+
 // Routers for edit
 // router.put('/edit/:id', authController.requireAuth, authController.isAllowed, inventoryController.processEdit);
 router.put('/edit/:id', inventoryController.processEdit);
