@@ -1,5 +1,6 @@
 // create a reference to the model
 let InventoryModel = require('../models/inventory');
+let firebaseAdmin = require('firebase-admin');
 
 
 function getErrorMessage(err) {    
@@ -18,15 +19,31 @@ function getErrorMessage(err) {
 module.exports.inventoryList = async function(req, res, next){  
 
     try {
-        let inventoryList = await InventoryModel.find().populate({
-            path: 'owner',
-            select: 'firstName lastName email username admin created'
-        });
+        // let inventoryList = await InventoryModel.find().populate({
+        //     path: 'owner',
+        //     select: 'firstName lastName email username admin created'
+        // });
 
+        
         // setTimeout(()=>{
-            res.status(200).json(inventoryList);
+            // res.status(200).json(inventoryList);
         // }, 5000)
         
+    
+        let db = firebaseAdmin.firestore();
+        let allDocs = await db.collection('inventory').get();
+        let inventoryList = [];
+
+        allDocs.forEach(item => {
+            
+            inventoryList.push(item.data());
+        })
+        
+        // res.status(200).json({test: true});
+        res.status(200).json(inventoryList);
+
+        console.log(allDocs);
+
     } catch (error) {
         return res.status(400).json(
             { 
@@ -39,7 +56,7 @@ module.exports.inventoryList = async function(req, res, next){
 }
 
 
-module.exports.processEdit = (req, res, next) => {
+module.exports.processEdit = async (req, res, next) => {
 
     try {
         let id = req.params.id;
@@ -93,7 +110,7 @@ module.exports.processEdit = (req, res, next) => {
 }
 
 
-module.exports.performDelete = (req, res, next) => {
+module.exports.performDelete = async (req, res, next) => {
 
     try {
         let id = req.params.id;
@@ -135,11 +152,17 @@ module.exports.performDelete = (req, res, next) => {
 }
 
 
-module.exports.processAdd = (req, res, next) => {
+module.exports.processAdd = async (req, res, next) => {
 
     try {
-        let newItem = InventoryModel({
-            _id: req.body.id,
+
+        // get the firebase instance of Firestore
+        let db = firebaseAdmin.firestore();
+
+        let newDoc = db.collection('inventory').doc();
+        
+        let newItem = {
+            _id: newDoc.id,
             item: req.body.item,
             qty: req.body.qty,
             status: req.body.status,
@@ -150,27 +173,14 @@ module.exports.processAdd = (req, res, next) => {
             },
             tags: (req.body.tags == null || req.body.tags == "") ? "": req.body.tags.split(",").map(word => word.trim()),
             // If it does not have an owner it assumes the ownership otherwise it assigns it.
-            owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner
-        });
+            // owner: (req.body.owner == null || req.body.owner == "")? req.payload.id : req.body.owner
+        };
 
-        InventoryModel.create(newItem, (err, item) =>{
-            if(err)
-            {
-                console.log(err);
-
-                return res.status(400).json(
-                    { 
-                        success: false, 
-                        message: getErrorMessage(err)
-                    }
-                );
-            }
-            else
-            {
-                console.log(item);
-                res.status(200).json(item);
-            }
-        });
+        let response = await newDoc.set(newItem);
+        console.log(response);
+        
+        res.status(200).json(newItem);
+        
     } catch (error) {
         return res.status(400).json(
             { 
@@ -180,4 +190,29 @@ module.exports.processAdd = (req, res, next) => {
         );
     }   
     
+}
+
+module.exports.getOne = async (req, res, next) => {
+
+    try {
+        let id = req.params.id;
+
+        // get the firebase instance of Firestore
+        let db = firebaseAdmin.firestore();
+    
+        let response = await db.collection('inventory').doc(id).get()
+        .then(item => {            
+            res.status(200).json(item.data());
+        });
+
+        console.log(response);        
+        
+    } catch (error) {
+        return res.status(400).json(
+            { 
+                success: false, 
+                message: getErrorMessage(error)
+            }
+        );
+    }
 }
