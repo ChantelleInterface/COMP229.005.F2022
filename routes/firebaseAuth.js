@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-let firebaseAuthControler = require('../controllers/firebaseAuth');
+let firebaseAuthController = require('../controllers/firebaseAuth');
 
 /* GET home page. */
-router.post('/signup', firebaseAuthControler.signup);
+router.post('/signup', firebaseAuthController.signup);
 
 module.exports = router;
