@@ -8,6 +8,7 @@ let authController = require('../controllers/firebaseAuth');
 /* GET list of items */
 router.get('/list', inventoryController.inventoryList);
 
+/* GET item by id */
 router.get('/get/:id', inventoryController.getOne);
 
 // Routers for edit
