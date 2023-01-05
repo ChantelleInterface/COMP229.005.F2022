@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var logger = require('morgan');
-let passport = require('passport');
 let cors = require('cors');
 
 var indexRouter = require('../routes/index');
@@ -17,9 +16,6 @@ app.options('*', cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// Sets up passport
-app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', firebaseAuthRouter);
